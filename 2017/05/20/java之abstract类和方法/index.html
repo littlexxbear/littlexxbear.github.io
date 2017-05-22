@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="abstract类和方法1.abstract类的特点​           abstract类中可以有abstract方法，不同于普通类，其中可以有抽象方法，也可以没有抽象方法。 1234567eg:abstract class A&amp;#123;  abstract int min(int x,int y);  int max(int x,int y)&amp;#123;return x&amp;gt;y;  &amp;#">
+<meta name="description" content="abstract类和方法1.abstract类的特点​           abstract类中可以有abstract方法，不同于普通类，其中可以有抽象方法，也可以没有抽象方法。">
 <meta name="keywords" content="学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="abstract类和方法">
 <meta property="og:url" content="http://yoursite.com/2017/05/20/java之abstract类和方法/index.html">
 <meta property="og:site_name" content="且听风吟">
-<meta property="og:description" content="abstract类和方法1.abstract类的特点​           abstract类中可以有abstract方法，不同于普通类，其中可以有抽象方法，也可以没有抽象方法。 1234567eg:abstract class A&amp;#123;  abstract int min(int x,int y);  int max(int x,int y)&amp;#123;return x&amp;gt;y;  &amp;#">
-<meta property="og:updated_time" content="2017-05-20T09:31:19.241Z">
+<meta property="og:description" content="abstract类和方法1.abstract类的特点​           abstract类中可以有abstract方法，不同于普通类，其中可以有抽象方法，也可以没有抽象方法。">
+<meta property="og:updated_time" content="2017-05-22T06:42:33.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="abstract类和方法">
-<meta name="twitter:description" content="abstract类和方法1.abstract类的特点​           abstract类中可以有abstract方法，不同于普通类，其中可以有抽象方法，也可以没有抽象方法。 1234567eg:abstract class A&amp;#123;  abstract int min(int x,int y);  int max(int x,int y)&amp;#123;return x&amp;gt;y;  &amp;#">
+<meta name="twitter:description" content="abstract类和方法1.abstract类的特点​           abstract类中可以有abstract方法，不同于普通类，其中可以有抽象方法，也可以没有抽象方法。">
 
 
 
@@ -365,10 +365,10 @@
 
       
         <h1 id="abstract类和方法"><a href="#abstract类和方法" class="headerlink" title="abstract类和方法"></a>abstract类和方法</h1><h2 id="1-abstract类的特点"><a href="#1-abstract类的特点" class="headerlink" title="1.abstract类的特点"></a>1.abstract类的特点</h2><p>​           <1>abstract类中可以有abstract方法，不同于普通类，其中可以有抽象方法，也可以没有抽象方法。</1></p>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">eg:</div><div class="line">abstract class A&#123;</div><div class="line">  abstract int min(int x,int y);</div><div class="line">  int max(int x,int y)&#123;</div><div class="line">return x&gt;y;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>​            <2>abstract类不能用new运算符创建对象。</2></p>
 <p>  如果一个 非抽象的类是某个抽象类的子类，那么他必须重写父类的方法，给出方法体。所以final和abstract不能同时修饰一个方法体。</p>
-<a id="more"></a>
 <p><strong>abstract类可以没有abstract方法</strong></p>
 <p><strong>如果一个abstract类是abstract类的子类，他可以重写父类的abstract方法，也可以继承这个abstract方法</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">eg:</div><div class="line">   abstract class A&#123;</div><div class="line">     abstract int sum(int x,int y);//抽象类中定义了抽象的方法，具体的实现                                    //在调用抽象方法的类中</div><div class="line">     int sub(int x,int y)&#123;</div><div class="line">       return x-y;</div><div class="line">     &#125;</div><div class="line">   &#125;  </div><div class="line">    class B extends A&#123;   //类B继承了抽象类A</div><div class="line">      int sum(int x,int y)&#123;  //B必须对A中的抽象方法进行重写</div><div class="line">        return x+y;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    public class Example&#123;</div><div class="line">      public static void main(String args[])&#123;</div><div class="line">      B b=new B();</div><div class="line">      int sum=b.sum(30,20); //调用重写的方法 </div><div class="line">      int sub=b.sub(30,20);  //调用继承的方法</div><div class="line">      System.out.println(&quot;sum=&quot;+sum);</div><div class="line">      System.out.println(&quot;sum=&quot;+sub);</div><div class="line">         &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
