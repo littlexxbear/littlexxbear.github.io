@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="故障分析," />
 
 
 
@@ -87,16 +87,17 @@
 
 
 
-<meta name="description" content="keep walking">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta name="description" content="【TABLESPACE】Oracle数据库默认永久表空间的查询及删除方法 个人分类：故障处理与分析 每一个数据库，都有一个默认永久表空间与之对应。既然冠以“默认”的称号，索引这个表空间是不允许轻易被删除的。本文给出Oracle默认表空间的查询方法以及删除方法。">
+<meta name="keywords" content="故障分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="oracle中不能够删除默认表空间">
+<meta property="og:url" content="http://yoursite.com/2017/05/19/oracle中不能够删除默认表空间/index.html">
 <meta property="og:site_name" content="且听风吟">
-<meta property="og:description" content="keep walking">
-<meta property="og:updated_time" content="2017-05-22T06:37:34.921Z">
+<meta property="og:description" content="【TABLESPACE】Oracle数据库默认永久表空间的查询及删除方法 个人分类：故障处理与分析 每一个数据库，都有一个默认永久表空间与之对应。既然冠以“默认”的称号，索引这个表空间是不允许轻易被删除的。本文给出Oracle默认表空间的查询方法以及删除方法。">
+<meta property="og:updated_time" content="2017-05-22T06:44:33.410Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="keep walking">
+<meta name="twitter:title" content="oracle中不能够删除默认表空间">
+<meta name="twitter:description" content="【TABLESPACE】Oracle数据库默认永久表空间的查询及删除方法 个人分类：故障处理与分析 每一个数据库，都有一个默认永久表空间与之对应。既然冠以“默认”的称号，索引这个表空间是不允许轻易被删除的。本文给出Oracle默认表空间的查询方法以及删除方法。">
 
 
 
@@ -124,19 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/19/oracle中不能够删除默认表空间/"/>
 
 
 
 
 
-  <title>
-  
-
-  
-    about | 且听风吟
-  
-</title>
+  <title> oracle中不能够删除默认表空间 | 且听风吟 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,18 +261,212 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/oracle中不能够删除默认表空间/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="King">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="且听风吟">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                oracle中不能够删除默认表空间
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T05:44:49+08:00">
+                2017-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/oracle/" itemprop="url" rel="index">
+                    <span itemprop="name">oracle</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
-    
+      
+
+      
+        <p><strong>【TABLESPACE】Oracle数据库默认永久表空间的查询及删除方法</strong></p>
+<p>个人分类：故障处理与分析</p>
+<p>每一个数据库，都有一个默认永久表空间与之对应。既然冠以“默认”的称号，索引这个表空间是不允许轻易被删除的。本文给出Oracle默认表空间的查询方法以及删除方法。</p>
+<a id="more"></a>
+<p><em>1.获取数据库的默认永久表空间</em></p>
+<p>此信息可以通过DATABASE_PROPERTIES视图获取。</p>
+<figure class="highlight plain"><figcaption><span>set lines 131</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">sys@ora10g&gt; col property_name for a30</div><div class="line"></div><div class="line">sys@ora10g&gt; col property_value for a30</div><div class="line"></div><div class="line">sys@ora10g&gt; col description for a40</div><div class="line"></div><div class="line">sys@ora10g&gt; select * from database_properties where property_name=&apos;DEFAULT_PERMANENT_TABLESPACE&apos;;</div><div class="line"></div><div class="line">PROPERTY_NAME PROPERTY_VALUE DESCRIPTION</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DEFAULT_PERMANENT_TABLESPACE USERS Name of default permanent tablespace</div></pre></td></tr></table></figure>
+<p>此系统的默认永久表空间是<strong>USERS</strong>。</p>
+<p><em>2.尝试删除默认永久表空间</em></p>
+<p><code>sys@ora10g&gt; drop tablespace USERS including contents and datafiles;</code></p>
+<p><code>drop tablespace USERS including contents and datafiles</code></p>
+<p>*</p>
+<p>ERROR at line 1:</p>
+<p><code>ORA-12919: Can not drop the default permanent tablespace</code></p>
+<p>此时的“ORA-12919”报错详细的记录了问题原因。</p>
+<p><em>3.默认永久表空间的删除方法</em></p>
+<p>既然是因为是“默认”的永久表空间不可以删除，我们仅需将默认的永久表空间指定到其他表空间，然后USERS表空间便可以被顺利删除。</p>
+<p>1）将数据库系统的默认永久表空间调整到TBS_SEC_D</p>
+<p><code>sys@ora10g&gt; alter database default tablespace TBS_SEC_D;</code></p>
+<p><code>Database altered.</code></p>
+<p>2）确认调整效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sys@ora10g&gt; select * from database_properties where </div><div class="line">property_name=&apos;DEFAULT_PERMANENT_TABLESPACE&apos;;</div><div class="line">PROPERTY_NAME PROPERTY_VALUE DESCRIPTION</div></pre></td></tr></table></figure>
+<hr>
+<p><code>DEFAULT_PERMANENT_TABLESPACE TBS_SEC_D Name of default permanent tablespace</code></p>
+<p>3）删除原默认永久表空间USERS</p>
+<p><code>sys@ora10g&gt; drop tablespace USERS including contents and datafiles;</code></p>
+<p><code>Tablespace dropped.</code></p>
+<p>删除成功。</p>
+<p>4.小结</p>
+<p>本文给出了Oracle数据库默认永久表空间的查询及删除方法。</p>
+<p>BTW，通过database_properties视图我们可以获取数据库很多其他默认信息。如下所示。</p>
+<p><code>sys@ora10g&gt; select * from database_properties;</code></p>
+<p><code>PROPERTY_NAME PROPERTY_VALUE DESCRIPTION</code></p>
+<hr>
+<p>DICT.BASE 2 dictionary base tables version<br>。。。。。。 </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/故障分析/" rel="tag"># 故障分析</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/20/java之内部类/" rel="prev" title="内部类">
+                内部类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -532,6 +721,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
