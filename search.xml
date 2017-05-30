@@ -56,6 +56,9 @@
       <categories>
         <category>java</category>
       </categories>
+      <tags>
+        <tag>学习</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[oracle中不能够删除默认表空间]]></title>
