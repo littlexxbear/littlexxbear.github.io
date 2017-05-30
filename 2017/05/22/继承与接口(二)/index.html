@@ -1,0 +1,1042 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="keep walking" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="继承与接口（二）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="继承与接口(二)">
+<meta property="og:url" content="http://yoursite.com/2017/05/22/继承与接口(二)/index.html">
+<meta property="og:site_name" content="且听风吟">
+<meta property="og:description" content="继承与接口（二）">
+<meta property="og:updated_time" content="2017-05-29T08:44:52.377Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="继承与接口(二)">
+<meta name="twitter:description" content="继承与接口（二）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/22/继承与接口(二)/"/>
+
+
+
+
+
+  <title> 继承与接口(二) | 且听风吟 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?67c5aa50cda24a74d56b015305eb58df";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">且听风吟</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never say never</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/source/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-学习 " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/22/继承与接口(二)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="King">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="且听风吟">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                继承与接口(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-22T18:03:37+08:00">
+                2017-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>本文阅读
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="继承与接口（二）"><a href="#继承与接口（二）" class="headerlink" title="继承与接口（二）"></a>继承与接口（二）</h3><a id="more"></a>
+<h4 id="7-对象的上转型对象"><a href="#7-对象的上转型对象" class="headerlink" title="7.对象的上转型对象"></a>7.对象的上转型对象</h4><h5 id="什么是对象的上转型对象？"><a href="#什么是对象的上转型对象？" class="headerlink" title="什么是对象的上转型对象？"></a><em>什么是对象的上转型对象？</em></h5><p>​       假设A类是B类的父类，当用子类创建一个对象，并<strong>把这个对象的引用放到父类的对象中</strong>,如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">eg:</div><div class="line">A a=<span class="keyword">new</span> B();</div><div class="line">或：</div><div class="line">A a;</div><div class="line">B b=<span class="keyword">new</span> B();</div><div class="line">a=b;</div></pre></td></tr></table></figure>
+<p>称对象a是对象b的上转型对象。</p>
+<h5 id="上转型对象的特点："><a href="#上转型对象的特点：" class="headerlink" title="上转型对象的特点："></a><em>上转型对象的特点：</em></h5><p>​      上转型对象不能操作操作子类新增的成员变量（失掉了这部分属性），不能调用子类新增的方法（失掉了一些功能）。</p>
+<p>​      上转型对象可以访问子类继承或隐藏的成员变量，也可以调用子类继承的方法或子类的重写方法。若子类重写了父类的方法，则上转型对象调用的方法一定是重写的方法。</p>
+<p><em>注：可以将上转型对象强制转换成子类对象，这样，该对象又具备了子类对象的所有的功能和属性。</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">eg:</div><div class="line">Anthropoid.java</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Anthropoid</span></span>&#123;</div><div class="line">  <span class="keyword">double</span> m=<span class="number">12.5</span>;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span></span>&#123;</div><div class="line">    System.out.println(s);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">People.java</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">People</span> <span class="keyword">extends</span> <span class="title">Anthropoid</span></span>&#123;</div><div class="line"> <span class="keyword">char</span> m=<span class="string">'A'</span>;</div><div class="line"> <span class="keyword">int</span> n=<span class="number">60</span>;</div><div class="line"> <span class="function"><span class="keyword">void</span> <span class="title">computer</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">   <span class="keyword">int</span> c=a+b;</div><div class="line">   System.out.println(a+<span class="string">"加"</span>+b+<span class="string">"等于"</span>+c)</div><div class="line"> &#125;</div><div class="line"> <span class="function"><span class="keyword">void</span> <span class="title">crySpeak</span><span class="params">(String s)</span></span>&#123;</div><div class="line">   System.out.println(m+<span class="string">"**"</span>+s+<span class="string">"**"</span>+m);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Example.java</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">    People people=<span class="keyword">new</span> People();</div><div class="line">    Anthropoid monkey=people;<span class="comment">//monkey是对象的上转型对象                   monkey.crySpeak("I love this game!");//等同于调用了People的</span></div><div class="line">                                         <span class="comment">//  重写方法</span></div><div class="line">    <span class="comment">//monkey.n=100;//非法，n是子类中新增的成员</span></div><div class="line">    <span class="comment">//monkey.computer(12,19); //非法，computer是新增方法</span></div><div class="line">    System.out.println(monkey.m);<span class="comment">//操作隐藏的m，不同于people.m</span></div><div class="line">    System.out.println(people.m);<span class="comment">//操作子类的m</span></div><div class="line">    People zhang=(People)monkey; <span class="comment">//强制转换为子类型</span></div><div class="line">    zhang.computer(<span class="number">55</span>,<span class="number">33</span>);</div><div class="line">    zhang.m=<span class="string">'T'</span>;          <span class="comment">//可以调用子类型的全部属性和方法</span></div><div class="line">    System.out.println(zhang.m); </div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="8-继承与多态"><a href="#8-继承与多态" class="headerlink" title="8.继承与多态"></a>8.继承与多态</h5><p>​       <strong>当一个类中有许多的子类，并且这些子类都重写了父类中的某个方法时，那么把子类创建的对象的引用放到一个父类的对象中，就得到了该对象的一个上转型对象。</strong></p>
+<p>​         这个上转型对象在调用这个方法时可能具有多种形态，<strong>因为不同的子类在重写父类的方法是可能产生不同的行为。</strong></p>
+<p>​        <strong>多态性是指父类的某个方法被其子类重写时，可以各自产生自己的功能</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> 动物</span>&#123;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">cry</span><span class="params">()</span></span>&#123;</div><div class="line">  </div><div class="line">   &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> 狗 <span class="keyword">extends</span> 动物</span>&#123;</div><div class="line"><span class="keyword">void</span> cry&#123;</div><div class="line">  System.out.println(<span class="string">"汪汪...汪汪"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> 猫 <span class="keyword">extends</span> 动物</span>&#123;</div><div class="line"><span class="keyword">void</span> cry&#123;</div><div class="line">  System.out.println(<span class="string">"喵喵...喵喵"</span>);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="9-abstract类和方法"><a href="#9-abstract类和方法" class="headerlink" title="9.abstract类和方法"></a>9.abstract类和方法</h5><p>​    使用abstract修饰的类称为abstract方法，如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​       <strong>abstract方法：只允许声明，不允许实现，而且不允许final和abstract修饰同一个方法。</strong></p>
+<p>​     <strong>9.1抽象类的特点</strong></p>
+<p>​       <strong>1 .在abstract类中可以有abstract方法也可以有普通的方法 </strong></p>
+<p>​       <strong>2.abstract类中不能够使用new运算符创建对象，如果一个非抽象的类是某个抽象类的子类，则它必须重写父类的方法。</strong></p>
+<p>   <em>注：abstract类也可以没有abstract方法。</em></p>
+<p>​    <em>一个abstract类是abstract类的子类，他可以重写父类的abstract方法，也可以继承这个abstract类的方法。</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">int</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> x-y;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;<span class="comment">//普通B类继承抽象类，必须重写父类的方法</span></div><div class="line">    <span class="keyword">return</span> x+y;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> Example&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">    B b=<span class="keyword">new</span> B();</div><div class="line">    <span class="keyword">int</span> sum=b.sum(<span class="number">30</span>,<span class="number">20</span>);<span class="comment">//调用重写的方法</span></div><div class="line">    <span class="keyword">int</span> sub=b.sub(<span class="number">30</span>,<span class="number">20</span>);<span class="comment">//调用继承的方法</span></div><div class="line">    System.out.println(<span class="string">"sum="</span>+sum);</div><div class="line">    System.out.println(<span class="string">"sub="</span>+sub);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​       <strong>抽象类只关心操作，即只关心方法的名字，类型和参数，不关心这些操作具体实现的细节，即不关心方法体。细节应当由抽象类的非抽象子类去实现，这些子类可以给出具体的实例来完成程序功能的具体实现。</strong></p>
+<p>​     <strong>9.2抽象类与多态</strong></p>
+<p>​           实现原理：使用上转型对象，<strong>将abstract类声明的对象作为其子类的上转型对象，则这个上转型对象就可以调用子类重写的方法</strong></p>
+<p>​     体现了“开-闭”的程序设计原则即：<strong>允许扩展，不允许修改</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">eg:  <span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">cry</span><span class="params">()</span></span>;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">getAnimal</span><span class="params">()</span></span>;</div><div class="line">        &#125; </div><div class="line">      <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Simulator</span></span>&#123;   </div><div class="line">          <span class="comment">//抽象类中定义了两个方法，具体的实现在以后子类调用的时候实现 </span></div><div class="line">          <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playSound</span><span class="params">(Animal animal)</span></span>&#123;</div><div class="line">          <span class="comment">//方法中以抽象类作为参数，animal是任何一个子类的上转型对                //象，可以调用Animal子类重写的方法,播放具体动物的声音          System.out.println("现在播放的是"+animal.getAnimalName()+"类的声音"); </span></div><div class="line">              animal.cry();</div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">           <span class="keyword">public</span> Dog extends Animal&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cry</span><span class="params">()</span></span>&#123;                         System.out.println(<span class="string">"汪汪...汪汪"</span>);</div><div class="line">            &#125;</div><div class="line">           <span class="function"><span class="keyword">public</span> String <span class="title">getAnimalName</span><span class="params">()</span></span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="string">"狗"</span>;</div><div class="line">              &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">public</span> cat extends Animal&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cry</span><span class="params">()</span></span>&#123;                           System.out.println(<span class="string">"喵喵...喵喵"</span>);</div><div class="line">            &#125;  </div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">getAnimalName</span><span class="params">()</span></span>&#123;    </div><div class="line">                            <span class="keyword">return</span> <span class="string">"猫"</span>; </div><div class="line">               &#125;</div><div class="line">             &#125;</div><div class="line">      <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;            Simulator simulator=<span class="keyword">new</span> Simulator(); </div><div class="line">           <span class="function">simulator <span class="title">playSound</span><span class="params">(new Dog()</span>)</span>;  </div><div class="line">           <span class="function">simulator <span class="title">playSound</span><span class="params">(new cat()</span>)</span>;   </div><div class="line">            &#125;</div><div class="line">          &#125;</div></pre></td></tr></table></figure>
+<h4 id="10-接口"><a href="#10-接口" class="headerlink" title="10.接口"></a>10.接口</h4><h5 id="10-1接口的声明和使用"><a href="#10-1接口的声明和使用" class="headerlink" title="10.1接口的声明和使用"></a>10.1接口的声明和使用</h5><h6 id="声明：-interface-接口的名字"><a href="#声明：-interface-接口的名字" class="headerlink" title="声明： interface 接口的名字"></a>声明： interface 接口的名字</h6><h6 id="接口体：包含常量定义和方法定义："><a href="#接口体：包含常量定义和方法定义：" class="headerlink" title="接口体：包含常量定义和方法定义："></a>接口体：包含常量定义和方法定义：</h6><p>​          接口体中只有抽象方法，没有普通的方法，而且接口体中所有常量和抽象方法的访问权限一定都是public</p>
+<h6 id="接口的使用："><a href="#接口的使用：" class="headerlink" title="接口的使用："></a>接口的使用：</h6><p>​         一个类通过关键字implements声明自己实现一个或多个接口，如果实现多个接口，使用逗号隔开。如A类实现B和C的一个接口</p>
+<p>​         class A implements B,C</p>
+<p>   Animal的子类Dog实现B和C的接口</p>
+<p>​       class Dog extends Animal implements B,C</p>
+<ul>
+<li><p>如果一个类中实现了某个接口，那么这个类必须重写这个类的所有方法。重写接口方法时，接口中的方法一定是public abstract方法，所以在类重写接口方法时不仅要去掉abstract给出方法体，还要访问权限一定要明显的用public来修饰（否则就降低了访问权限）。</p>
+</li>
+<li><p>需要引用包：import java.io.*</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Computable</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> MAX =<span class="number">100</span>;</div><div class="line">  <span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">China</span> <span class="keyword">implements</span> <span class="title">Computable</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> number;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;<span class="comment">// public关键字不要忘记！！！</span></div><div class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=x;i++)&#123;</div><div class="line">      sum=sum+i;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​     <strong>类重写的接口方法以及接口中的常量可以被类的对象调用，而且常量可以用类名或接口名直接调用。</strong></p>
+<p>​    <strong>接口可以继承</strong></p>
+<p>​     <strong>声明接口时，前面加public时表明是公共接口，可以被任何一个类声明实现。如果不加public，是友好接口，可以被与该接口在同一个包中的类声明实现。</strong></p>
+<p><em>如果一个类声明实现一个接口，但是没有重写该类中的所有方法，那么这个类一定是abstract类</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Computable</span></span>&#123;</div><div class="line">  <span class="keyword">final</span> <span class="keyword">int</span> Max=<span class="number">100</span>;</div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">speak</span><span class="params">(String s)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> x)</span></span>;</div><div class="line">  <span class="function"><span class="keyword">float</span> <span class="title">g</span><span class="params">(<span class="keyword">float</span> x,<span class="keyword">float</span> y)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span> <span class="keyword">implements</span> <span class="title">Computable</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> sum=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=x;i++)&#123;</div><div class="line">      sum+=i;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> sum;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><em>接口的思想：它可以增加许多类都需要具有的功能，而且实现相同接口类不一定有继承关系</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">interface</span> 收费</span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">void</span> 收取费用();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">interface</span> 调节温度</span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">void</span> 调节温度();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> 公共汽车 <span class="keyword">implements</span> 收费</span>&#123;</div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> 收费()&#123;</div><div class="line">  System.out.println(<span class="string">"1/元每公里"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> 出租车 <span class="keyword">implements</span> 收费,调节温度</span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">void</span> 收费()&#123;</div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">void</span> 调节温度()&#123;</div><div class="line">    </div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="10-3接口回调"><a href="#10-3接口回调" class="headerlink" title="10.3接口回调"></a>10.3接口回调</h5><p>接口回调：<strong>把实现某一接口的类创建的对象的引用赋给该接口声明的接口变量中，则该接口变量就可以调用被类重写的接口方法.</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">eg:</div><div class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ShowMessage</span></span>&#123;</div><div class="line">  <span class="keyword">void</span> 显示商标(String s);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tv</span> <span class="keyword">implements</span> <span class="title">ShowMessage</span></span>&#123;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">void</span> 显示商标(String s)&#123;</div><div class="line">    System.out.println(s);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">    ShowMessage sm;<span class="comment">//声明接口变量</span></div><div class="line">    sm=<span class="keyword">new</span> TV();<span class="comment">//接口变量中存放对象的引用</span></div><div class="line">    sm.显示商标(<span class="string">"长城牌电视机"</span>);<span class="comment">//接口回调</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​       把实现接口的类的实例的引用赋值给接口变量后该接口变量就可以回调类重写的接口方法。</p>
+<h5 id="10-4接口与多态"><a href="#10-4接口与多态" class="headerlink" title="10.4接口与多态"></a>10.4接口与多态</h5><p>​     <strong>使用接口进行程序设计的核心思想：使用接口回调，即接口变量存放实现接口的类的对象的引用，从而接口变量可以回调实现接口方法。</strong></p>
+<h5 id="10-5abstract类和接口的比较"><a href="#10-5abstract类和接口的比较" class="headerlink" title="10.5abstract类和接口的比较"></a>10.5abstract类和接口的比较</h5><ul>
+<li>abstract类和接口都可以有abstract方法</li>
+<li>接口中可以有常量，不能够有变量，而abstract中可以有常量和变量</li>
+<li>abstract类中可以有非abstract方法，而接口不可以。</li>
+</ul>
+<p>​</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/22/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/29/类与对象/" rel="prev" title="类与对象">
+                类与对象 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="King" />
+          <p class="site-author-name" itemprop="name">King</p>
+           
+              <p class="site-description motion-element" itemprop="description">keep walking</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/littlexxbear" target="_blank" title="github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/5643511798/home" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.github.com" title="Github" target="_blank">Github</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.shiyanlou.com" title="实验楼" target="_blank">实验楼</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.java1234.com/" title="java学习" target="_blank">java学习</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.moocollege.cn/" title="锐聘学院" target="_blank">锐聘学院</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承与接口（二）"><span class="nav-number">1.</span> <span class="nav-text">继承与接口（二）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-对象的上转型对象"><span class="nav-number">1.1.</span> <span class="nav-text">7.对象的上转型对象</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是对象的上转型对象？"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是对象的上转型对象？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#上转型对象的特点："><span class="nav-number">1.1.2.</span> <span class="nav-text">上转型对象的特点：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-继承与多态"><span class="nav-number">1.1.3.</span> <span class="nav-text">8.继承与多态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-abstract类和方法"><span class="nav-number">1.1.4.</span> <span class="nav-text">9.abstract类和方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-接口"><span class="nav-number">1.2.</span> <span class="nav-text">10.接口</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#10-1接口的声明和使用"><span class="nav-number">1.2.1.</span> <span class="nav-text">10.1接口的声明和使用</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#声明：-interface-接口的名字"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">声明： interface 接口的名字</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#接口体：包含常量定义和方法定义："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">接口体：包含常量定义和方法定义：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#接口的使用："><span class="nav-number">1.2.1.3.</span> <span class="nav-text">接口的使用：</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-3接口回调"><span class="nav-number">1.2.2.</span> <span class="nav-text">10.3接口回调</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-4接口与多态"><span class="nav-number">1.2.3.</span> <span class="nav-text">10.4接口与多态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-5abstract类和接口的比较"><span class="nav-number">1.2.4.</span> <span class="nav-text">10.5abstract类和接口的比较</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+	<div id="music163player">
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=80 height=86 src="//music.163.com/outchain/player?type=2&id=38358214&auto=0&height=66"> 
+</iframe> </div>
+
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">King</span>
+</div>
+
+
+<div class="powered-by">
+  个人专属
+</div>
+
+<div class="theme-info">
+  博客 -bear
+
+</div>
+
+
+        ﻿
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      本站总访问量<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>次
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      本页总浏览量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+</body>
+</html>
